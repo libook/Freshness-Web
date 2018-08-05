@@ -1,7 +1,8 @@
 <template>
-  <div>
-    {{timer}}
-  </div>
+  <tr>
+    <td>{{timer.name}}</td>
+    <td>{{(new Date(timer.expirationDate)).toLocaleString()}}</td>
+  </tr>
 </template>
 
 <script>
@@ -16,4 +17,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  td {
+    border: 1px solid black;
+  }
 </style>
