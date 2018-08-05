@@ -1,21 +1,15 @@
 <template>
   <div>
-    <Timer v-for="timer in list" :key="timer._id" v-bind:timer="timer"></Timer>
+    {{timer}}
   </div>
 </template>
 
 <script>
   'use strict';
-
-  import Timer from './Timer.vue';
-
   export default {
-    "name": "TimerList",
-    "components": {
-      Timer,
-    },
+    "name": "Timer",
     "props": [
-      "list",
+      "timer",
     ],
   };
 </script>

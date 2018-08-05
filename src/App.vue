@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TimerList v-model="timerList"></TimerList>
+    <TimerList v-bind:list="timerList"></TimerList>
   </div>
 </template>
 
