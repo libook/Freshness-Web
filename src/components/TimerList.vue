@@ -1,12 +1,17 @@
 <template>
   <div>
+    {{value}}
   </div>
 </template>
 
 <script>
-export default {
-  name: 'TimerList',
-};
+  'use strict';
+  export default {
+    "name": "TimerList",
+    "props":[
+      "value",
+    ],
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
