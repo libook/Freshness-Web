@@ -1,15 +1,18 @@
 <template>
   <div>
-    <table class="table is-fullwidth is-hoverable is-striped">
+    <table class="table is-fullwidth is-hoverable is-striped is-narrow">
       <thead>
-        <tr>
-          <th>名称</th>
-          <th>过期时间</th>
-          <th>还剩下</th>
-        </tr>
+      <tr>
+        <th>名称</th>
+        <th>过期时间</th>
+        <th>还剩下</th>
+        <th>
+            <span class="icon"><i class="mdi mdi-plus"></i></span>
+        </th>
+      </tr>
       </thead>
       <tbody>
-        <Timer v-for="timer in list" :key="timer._id" v-bind:timer="timer"></Timer>
+      <Timer v-for="timer in list" :key="timer._id" v-bind:timer="timer"></Timer>
       </tbody>
     </table>
   </div>

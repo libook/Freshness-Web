@@ -3,6 +3,10 @@
     <td>{{timer.name}}</td>
     <td>{{(new Date(timer.expirationDate)).toLocaleString()}}</td>
     <td>{{expiration}}</td>
+    <td>
+      <span class="icon"><i class="mdi mdi-pencil"></i></span>
+      <span class="icon"><i class="mdi mdi-delete"></i></span>
+    </td>
   </tr>
 </template>
 
