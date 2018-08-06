@@ -1,10 +1,11 @@
 <template>
   <div>
-    <table class="table is-bordered">
+    <table class="table is-fullwidth is-hoverable is-striped">
       <thead>
         <tr>
           <th>名称</th>
           <th>过期时间</th>
+          <th>还剩下</th>
         </tr>
       </thead>
       <tbody>
