@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container is-widescreen">
     <TimerList v-bind:list="timerList"></TimerList>
   </div>
 </template>
