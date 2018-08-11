@@ -3,15 +3,16 @@
     <table class="table is-fullwidth is-hoverable is-striped is-narrow">
       <thead>
       <tr>
-        <th>名称</th>
-        <th>过期时间</th>
-        <th>还剩下</th>
+        <th>Name</th>
+        <th>On</th>
+        <th>In</th>
         <th>
-            <span class="icon"><i class="mdi mdi-plus"></i></span>
+          <span class="icon" v-on:click="isCreatingNew=true"><i class="mdi mdi-plus"></i></span>
         </th>
       </tr>
       </thead>
       <tbody>
+      <TimerCreator v-if="isCreatingNew" v-model="isCreatingNew"></TimerCreator>
       <Timer v-for="timer in list" :key="timer._id" v-bind:timer="timer"></Timer>
       </tbody>
     </table>
@@ -22,15 +23,22 @@
   'use strict';
 
   import Timer from './Timer.vue';
+  import TimerCreator from './TimerCreator.vue';
 
   export default {
     "name": "TimerList",
     "components": {
       Timer,
+      TimerCreator,
     },
     "props": [
       "list",
     ],
+    "data": function () {
+      return {
+        "isCreatingNew": false,
+      };
+    },
   };
 </script>
 
