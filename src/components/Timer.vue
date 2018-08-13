@@ -44,20 +44,20 @@
     },
     "methods": {
       "create": function (timerInfo) {
-        axios.post('http://127.0.0.1:3000/timer', timerInfo).then((response) => {
+        axios.post(`${window.SERVER_HOST}/timer`, timerInfo).then((response) => {
           this.isCreatingNew = false;
           this.isEditing = false;
           this.$emit('update', response.data);
         });
       },
       "update": function (timerInfo) {
-        axios.put(`http://127.0.0.1:3000/timer/${this.timer._id}`, timerInfo).then((response) => {
+        axios.put(`${window.SERVER_HOST}/timer/${this.timer._id}`, timerInfo).then((response) => {
           this.isEditing = false;
           this.$emit('update', response.data);
         });
       },
       "remove": function () {
-        axios.delete(`http://127.0.0.1:3000/timer/${this.timer._id}`).then(() => {
+        axios.delete(`${window.SERVER_HOST}/timer/${this.timer._id}`).then(() => {
           this.$emit('remove');
         });
       },

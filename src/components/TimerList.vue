@@ -42,7 +42,7 @@
     },
     "methods": {
       "getList": function () {
-        axios.get('http://127.0.0.1:3000/timerList')
+        axios.get(`${window.SERVER_HOST}/timerList`)
           .then((response) => {
             this.timerList = response.data;
           });
