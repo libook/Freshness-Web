@@ -1,9 +1,13 @@
+html {
+  font-size: 18pt;
+}
+
 td.name {
   word-break: break-all;
 }
 
 td.expiration {
-  width: 10rem;
+  width: 7rem;
 }
 
 td.operation {
