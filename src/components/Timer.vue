@@ -1,45 +1,62 @@
-<template>
-  <tr>
-    <td>{{timer.name}}</td>
-    <td>{{(new Date(timer.expirationDate)).toLocaleString()}}</td>
-    <td>{{expiration}}</td>
-    <td>
-      <span class="icon"><i class="mdi mdi-pencil"></i></span>
-      <span class="icon"><i class="mdi mdi-delete"></i></span>
-    </td>
-  </tr>
+<template v-if="isEdting">
+  <timer-edit v-bind:timer="timer" v-on:cancel="cancelEdit" v-on:create="create"></timer-edit>
+</template>
+<template v-else>
+  <timer-show v-bind:timer="timer"></timer-show>
 </template>
 
 <script>
   'use strict';
 
-  import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
-  import locale from 'date-fns/locale/zh_cn';
+  import TimerEdit from './TimerEdit.vue';
+  import TimerShow from './TimerShow.vue';
 
   export default {
     "name": "Timer",
+    "components": [
+      TimerEdit,
+      TimerShow,
+    ],
     "props": [
       "timer",
     ],
     "data": function () {
       return {
-        "interval": null,
-        "expiration": "-",
+        "isEdting": false,
+        "isCreatingNew":false,
       };
     },
     "created": function () {
-      this.interval = setInterval(() => {
-        const expirationDate = new Date(this.timer.expirationDate);
-        this.expiration = distanceInWordsToNow(expirationDate, {
-          "includeSeconds": true,
-          "addSuffix": true,
-          "locale": locale,
-        });
-      }, 1000);
+      /**
+       * If there is no _id.
+       * It means this is a new timer.
+       */
+      if(timer._id===undefined){
+        this.isEdting=true;
+        this.isCreatingNew=true;
+      }
     },
     "beforeDestroy": function () {
-      if (this.interval) {
-        clearInterval(this.interval);
+    },
+    "methods": {
+      "create": function (timerInfo) {
+        this.isCreatingNew = false;
+        axios.post('http://127.0.0.1:3000/timer', timerInfo)
+          .then(() => {
+            this.getList();
+          })
+      },
+      "update": function () {
+      },
+      "remove": function () {
+        this.$emit('remove');
+      },
+      "cancelEdit":function(){
+        if(this.isCreatingNew){
+          this.remove();
+        }else{
+          this.isEdting=false;
+        }
       }
     },
   };
