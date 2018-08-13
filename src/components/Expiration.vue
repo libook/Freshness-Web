@@ -1,5 +1,6 @@
 <template>
-  <span>{{expiration}}</span>
+  <span v-if="mode==='in'" v-on:mouseover="mode='on'" v-on:click="mode='on'">{{expiration}}</span>
+  <span v-else v-on:mouseleave="mode='in'" v-on:click="mode='in'">{{(new Date(expirationDate)).toLocaleString()}}</span>
 </template>
 
 <script>
@@ -17,6 +18,7 @@
       return {
         "interval": null,
         "expiration": "-",
+        "mode": "in",// Show distance with 'in'; show expiration date with 'on';
       };
     },
     "created": function () {
