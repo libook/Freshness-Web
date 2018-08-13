@@ -1,12 +1,13 @@
 <template>
   <span v-if="mode==='in'" v-on:mouseover="mode='on'" v-on:click="mode='on'">{{expiration}}</span>
-  <span v-else v-on:mouseleave="mode='in'" v-on:click="mode='in'">{{(new Date(expirationDate)).toLocaleString()}}</span>
+  <span v-else v-on:mouseleave="mode='in'" v-on:click="mode='in'">{{expirationOn}}</span>
 </template>
 
 <script>
   'use strict';
 
   import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+  import format from 'date-fns/format'
   import locale from 'date-fns/locale/zh_cn';
 
   export default {
@@ -27,7 +28,7 @@
         this.expiration = distanceInWordsToNow(expirationDate, {
           "includeSeconds": true,
           "addSuffix": true,
-          "locale": locale,
+          locale,
         });
       }, 1000);
     },
@@ -35,6 +36,11 @@
       if (this.interval) {
         clearInterval(this.interval);
       }
+    },
+    "computed": {
+      "expirationOn": function () {
+        return format(new Date(this.expirationDate), 'YYYY-MM-DD', {locale});
+      },
     },
   };
 </script>

@@ -4,6 +4,7 @@
 
 import 'bulma';
 import '@mdi/font/css/materialdesignicons.css';
+import './styles.css';
 
 window.SERVER_HOST = 'http://192.168.50.12:3000';
 

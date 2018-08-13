@@ -2,10 +2,10 @@
   <tr>
     <td><input type="text" class="input is-rounded is-small" v-model="timerLocal.name"/></td>
     <td>
-      <input type="datetime-local" class="input is-rounded is-small" v-model="timerLocal.expirationDate"/>
-      <expiration v-bind:expiration-date="timerLocal.expirationDate"></expiration>
+      <input type="date" class="input is-rounded is-small" v-model="timerLocal.expirationDate"/>
+      <expiration class="expiration" v-bind:expiration-date="timerLocal.expirationDate"></expiration>
     </td>
-    <td>
+    <td class="operation">
       <span class="icon" v-on:click="update"><i class="mdi mdi-check"></i></span>
       <span class="icon" v-on:click="cancel"><i class="mdi mdi-close"></i></span>
     </td>

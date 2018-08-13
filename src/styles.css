@@ -1,0 +1,11 @@
+td.name {
+  word-break: break-all;
+}
+
+td.expiration {
+  width: 10rem;
+}
+
+td.operation {
+  width: 4rem;
+}
