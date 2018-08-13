@@ -1,13 +1,5 @@
 <template>
-  <tr>
-    <td><input type="text" class="input is-rounded is-small" v-model="name"/></td>
-    <td><input type="datetime-local" class="input is-rounded is-small" v-model="expirationDate"/></td>
-    <td>{{expiration}}</td>
-    <td>
-      <span class="icon"><i class="mdi mdi-check"></i></span>
-      <span class="icon" v-on:click="$emit('input',false)"><i class="mdi mdi-close"></i></span>
-    </td>
-  </tr>
+  <span>{{expiration}}</span>
 </template>
 
 <script>
@@ -15,19 +7,16 @@
 
   import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
   import locale from 'date-fns/locale/zh_cn';
-  import axios from 'axios';
 
   export default {
-    "name": "Timer",
+    "name": "Expiration",
     "props": [
-      'value',
+      "expirationDate",
     ],
     "data": function () {
       return {
         "interval": null,
         "expiration": "-",
-        "name": "",
-        "expirationDate": new Date(),
       };
     },
     "created": function () {
@@ -44,17 +33,6 @@
       if (this.interval) {
         clearInterval(this.interval);
       }
-    },
-    "methods":{
-      "save":function(){
-        axios.post('http://127.0.0.1:3000/timer',{
-          "name":this.name,
-          "expirationDate":this.expirationDate,
-        })
-          // .then((response)=>{
-          //
-          // })
-      },
     },
   };
 </script>
