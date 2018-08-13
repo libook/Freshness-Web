@@ -1,7 +1,6 @@
 <template>
   <tr>
     <td>{{timer.name}}</td>
-    <td>{{(new Date(timer.expirationDate)).toLocaleString()}}</td>
     <td><expiration v-bind:expiration-date="timer.expirationDate"></expiration></td>
     <td>
       <span class="icon" v-on:click="$emit('start-edit')"><i class="mdi mdi-pencil"></i></span>

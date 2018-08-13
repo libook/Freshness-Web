@@ -4,7 +4,6 @@
       <thead>
       <tr>
         <th>Name</th>
-        <th>On</th>
         <th>In</th>
         <th>
           <span class="icon" v-on:click="startCreate" v-bind:disbled="isCreatingNew"><i class="mdi mdi-plus"></i></span>

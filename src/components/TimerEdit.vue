@@ -1,8 +1,8 @@
 <template>
   <tr>
     <td><input type="text" class="input is-rounded is-small" v-model="timerLocal.name"/></td>
-    <td><input type="datetime-local" class="input is-rounded is-small" v-model="timerLocal.expirationDate"/></td>
     <td>
+      <input type="datetime-local" class="input is-rounded is-small" v-model="timerLocal.expirationDate"/>
       <expiration v-bind:expiration-date="timerLocal.expirationDate"></expiration>
     </td>
     <td>
