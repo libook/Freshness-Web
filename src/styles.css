@@ -1,0 +1,15 @@
+html {
+  font-size: 18pt;
+}
+
+td.name {
+  word-break: break-all;
+}
+
+td.expiration {
+  width: 7rem;
+}
+
+td.operation {
+  width: 4rem;
+}
