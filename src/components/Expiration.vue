@@ -6,9 +6,9 @@
 <script>
   'use strict';
 
-  import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+  import formatDistanceToNow from 'date-fns/formatDistanceToNow'
   import format from 'date-fns/format'
-  import locale from 'date-fns/locale/zh_cn';
+  import locale from 'date-fns/locale/zh-CN';
 
   export default {
     "name": "Expiration",
@@ -25,7 +25,7 @@
     "created": function () {
       this.interval = setInterval(() => {
         const expirationDate = new Date(this.expirationDate);
-        this.expiration = distanceInWordsToNow(expirationDate, {
+        this.expiration = formatDistanceToNow(expirationDate, {
           "includeSeconds": true,
           "addSuffix": true,
           locale,
