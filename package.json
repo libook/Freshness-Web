@@ -1,6 +1,6 @@
 {
   "name": "freshness-web",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This is the web client-end for Freshness.",
   "repository": {
     "type": "git",
