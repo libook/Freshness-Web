@@ -31,10 +31,10 @@
       const dataMap = {};
 
       /**
-       * If there is no _id.
+       * If there is no id.
        * It means this is a new timer.
        */
-      dataMap.isCreatingNew = !this.timer._id;
+      dataMap.isCreatingNew = !this.timer.id;
 
       dataMap.isEditing = dataMap.isCreatingNew;
 
@@ -51,13 +51,13 @@
         });
       },
       "update": function (timerInfo) {
-        axios.put(`${window.SERVER_HOST}/timer/${this.timer._id}`, timerInfo).then((response) => {
+        axios.put(`${window.SERVER_HOST}/timer/${this.timer.id}`, timerInfo).then((response) => {
           this.isEditing = false;
           this.$emit('update', response.data);
         });
       },
       "remove": function () {
-        axios.delete(`${window.SERVER_HOST}/timer/${this.timer._id}`).then(() => {
+        axios.delete(`${window.SERVER_HOST}/timer/${this.timer.id}`).then(() => {
           this.$emit('remove');
         });
       },

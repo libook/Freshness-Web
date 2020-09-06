@@ -11,7 +11,7 @@
       </tr>
       </thead>
       <tbody>
-      <timer v-for="(timer, index) in timerList" :key="timer._id"
+      <timer v-for="(timer, index) in timerList" :key="timer.id"
              v-bind:timer="timer"
              v-on:update="updateTimer(index,$event)"
              v-on:remove="remove(index)"
@@ -47,7 +47,7 @@
           });
       },
       "updateTimer": function (index, newTimer) {
-        if (this.timerList[index]._id === undefined) {
+        if (this.timerList[index].id === undefined) {
           this.isCreatingNew = false;
         }
         this.$set(this.timerList, index, newTimer);
@@ -59,7 +59,7 @@
         }
       },
       "remove": function (index) {
-        if (!this.timerList[index]._id) {
+        if (!this.timerList[index].id) {
           this.isCreatingNew = false;
         }
         this.timerList.splice(index, 1);

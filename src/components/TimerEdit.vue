@@ -35,7 +35,7 @@
         this.$emit('cancel');
       },
       "update": function () {
-        if (this.timerLocal._id) {
+        if (this.timerLocal.id) {
           this.$emit('update', this.timerLocal);
         } else {
           this.$emit('create', this.timerLocal);

@@ -6,7 +6,7 @@ import 'bulma';
 import '@mdi/font/css/materialdesignicons.css';
 import './styles.css';
 
-window.SERVER_HOST = 'http://192.168.50.12:3000';
+window.SERVER_HOST = 'http://172.29.240.3:3000';
 
 import Vue from 'vue';
 import App from './App.vue';
